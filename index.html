@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" style=" margin: 0; padding: 0; border: none;">
+<head>
+    <title>Viendo</title>
+</head>
+<body style="background-color: rgb(30, 30,30); margin: 0; padding: 0; position: relative; border: none;"
+>
+    <header style="background-color: rgb(60,60,60); height: 50px; color: white; border-color: rgb(30, 30,30); margin: 0; padding: 0; border: none; width: 100%;
+    text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 180%; line-height: 50px;" id="puntuacion"></header>
+    
+    <main id="campo" style=" margin: 0; padding: 0; border: none;" width="1536" height="686">
+        <button id="generador" style="height: 60px; width: 25%; background-color: orange; border-color: orangered; border-radius: 20px;
+        margin-top: 305px; margin-left: 37.5%; position: absolute;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 200%; color: white;" onclick="generar(),puntuacion()">¡Generar!</button>
+        <canvas id="myCanvas" width="1536" height="685" style="background-color: rgb(30, 30,30); margin: 0; padding: 0; border: none;"></canvas>
+    </main>
+
+    <script type="text/javascript">
+    var puntos=0;
+function puntuacion(){
+    puntos++;
+    var puntuacion = document.getElementById("puntuacion");
+    puntuacion.innerHTML= "Puntuación: "+puntos;
+}
+
+       function generar(){
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var tamano = tamanoR();
+    
+    // Asegurarse de que el cuadrado se dibuje dentro de los límites del lienzo
+    var maxX = c.width - tamano;
+    var maxY = c.height - tamano;
+    var min = 0;
+    var xp = Math.floor(Math.random() * (maxX + 1));
+    var yp = Math.floor(Math.random() * (maxY + 1));
+    
+    // Set a random fill color and draw the square
+    ctx.fillStyle = "rgba(" + colorR() + "," + colorR() + "," + colorR() + "," + alphaR() + ")";
+    ctx.fillRect(xp, yp, tamano, tamano);
+}
+
+function colorR(){
+    // Generate a random integer between 0 and 255 for RGB color
+    return Math.floor(Math.random() * 256);
+}
+
+function alphaR(){
+    // Generate a random integer between 0 and 255 for RGB color
+    return Math.random() * 1;
+}
+
+function tamanoR(){
+    // Generate a random size between 10 and 70
+    return Math.floor(Math.random() * (70 - 10 + 1)) + 10;
+}
+
+    </script>
+</body>
+</html>
