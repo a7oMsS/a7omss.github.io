@@ -8,7 +8,7 @@ function alternarElementos(id) {
 }
 
 function paginaPrincipal(){
-    window.location.href = 'paginaPrincipal.html';
+    window.location.href = 'index.html';
 }
 
 function showText() {
