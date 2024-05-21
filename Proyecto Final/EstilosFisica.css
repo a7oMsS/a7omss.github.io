@@ -1,0 +1,686 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding: 0;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin: 0;
+    border: none;
+    text-align: center;
+    width: 100%;
+    background: radial-gradient(rgb(223, 81, 175), rgb(165, 27, 165));
+}
+
+main {
+    background: rgb(157, 17, 167);
+    margin-top: 0px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 3vh;
+    width: 85%;
+    display: inline-block;
+    color: yellow;
+    text-shadow: 2px 2px 4px black;
+}
+
+article {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 75%;
+    text-align: justify;
+    height: 80vh;
+    overflow-y: auto;
+    
+}
+
+.datos{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.informacion{
+    width: 86%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
+    margin: auto;
+}
+
+aside {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow-y: auto;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-image: url(footer.avif);
+    background: lin;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: auto;
+}
+
+/*Aquí terminan las secciones HTML*/
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.headed2 {
+    background: linear-gradient(270deg, rgb(204, 61, 156), rgb(101, 12, 101), rgb(182, 105, 182), blue, purple);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    color: white;
+    line-height: 70px;
+    padding: 0;
+    margin-top: 0px;
+    border: none;
+    text-align: center;
+}
+
+.headed3 {
+    background: linear-gradient(270deg, rgb(39, 201, 71), rgb(7, 173, 175), rgb(6, 211, 47), rgb(3, 150, 172), rgb(0, 128, 81));
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    color: white;
+    line-height: 70px;
+    padding: 0;
+    display: flex;
+    border: none;
+    justify-content: center;
+}
+
+.headed4 {
+    background: linear-gradient(270deg, rgb(245, 13, 13), rgb(152, 6, 23),rgb(155, 49, 74), rgb(223, 110, 110), rgb(166, 68, 133));
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    color: white;
+    line-height: 70px;
+    padding: 0;
+    display: flex;
+    border: none;
+    justify-content: center;
+}
+
+.mainParcial {
+    background-color: white;
+    color: black;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-shadow: none;
+}
+
+.mainParcialTitulo {
+    text-shadow: none;
+    background-color: white;
+    color: black;
+    margin-left: 0%;
+    padding: 0%;
+    margin-bottom: 0px;
+    border: none;
+    width: 98%;
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainPrincipal {
+    background-image: url('Imagen5.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.asideParcial {
+    color: black;
+    width: 25%;
+    padding: 0px;
+    margin: 0px;
+    overflow: auto;
+}
+
+/*Aquí terminan las Subsecciones HTML*/
+@keyframes trabajando {
+    7% {
+        content: "t";
+    }
+
+    14% {
+        content: "tr";
+    }
+
+    21% {
+        content: "tra";
+    }
+
+    28% {
+        content: "trab";
+    }
+
+    35% {
+        content: "traba";
+    }
+
+    42% {
+        content: "trabaj";
+    }
+
+    49% {
+        content: "trabaja";
+    }
+
+    56% {
+        content: "trabajan";
+    }
+
+    63% {
+        content: "trabajand";
+    }
+
+    70% {
+        content: "trabajando";
+    }
+
+    77% {
+        content: "trabajando.";
+    }
+
+    84% {
+        content: "trabajando..";
+    }
+
+    91% {
+        content: "trabajando...";
+    }
+}
+
+cargar::after {
+    animation: trabajando 3s infinite;
+    font-family: monospace;
+    font-size: 29px;
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+    color: #cf63dd;
+    content: "";
+    text-shadow: 2px 2px 2px rgba(110, 82, 220, 0.674);
+}
+
+@keyframes pensando {
+    7% {
+        content: "P";
+    }
+
+    14% {
+        content: "Pe";
+    }
+
+    21% {
+        content: "Pen";
+    }
+
+    28% {
+        content: "Pens";
+    }
+
+    35% {
+        content: "Pensa";
+    }
+
+    42% {
+        content: "Pensan";
+    }
+
+    49% {
+        content: "Pensand";
+    }
+
+    56% {
+        content: "Pensando";
+    }
+
+    63% {
+        content: "Pensando.";
+    }
+
+    70% {
+        content: "Pensando..";
+    }
+
+    77% {
+        content: "Pensando...";
+    }
+
+    84% {
+        content: "Pensando..";
+    }
+
+    91% {
+        content: "Pensando...";
+    }
+}
+
+.props::after{
+    animation: pensando 3s infinite;
+    color: #b02828;
+    text-shadow: 2px 2px 2px rgba(232, 56, 100, 0.727);
+}
+h1{
+    line-height: 1em;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+h2 {
+    line-height: 30px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: white;
+}
+
+h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0pc;
+    margin-left: 2%;
+}
+
+h4 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 2%;
+    padding-left: 6%;
+    width: 70%;
+}
+h5{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.467);
+    line-height: 0em;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 2%;
+}
+
+titulo {
+    line-height: 0px;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: white;
+}
+
+tL2 {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border: none;
+    padding-top: 10px;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+/*Aquí terminan los titulos*/
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: rgb(59, 56, 56)
+}
+
+a:visited {
+    color: rgb(59, 56, 56)
+}
+
+p {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+div.form {
+    padding-top: 12px;
+    padding-left: 10%;
+    text-align: left;
+    padding-bottom: 10px;
+    width: 39%;
+    border-right: 2px dashed rgb(100, 92, 92);
+    border-bottom: 2px dashed rgb(100, 92, 92);
+    display: inline-block;
+}
+
+div.ej {
+    padding-top: 0px;
+    text-align: center;
+    padding-bottom: 0px;
+    padding-left: 2%;
+    width: 100%;
+}
+
+t {
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: justify;
+
+}
+t sup{
+    vertical-align: super !important;
+  font-size: smaller !important;
+    
+}
+
+formula {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid gray;
+    padding: 5px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+}
+
+ol {
+    margin-left: 3%;
+    width: 90%;
+}
+
+li {
+    margin: 10px;
+    text-align: justify;
+}
+
+/*Aquí terminan las textos*/
+
+hr {
+    height: 1px;
+    background-color: rgb(255, 102, 204);
+    width: 93%;
+}
+
+.ejerBar {
+    width: 99%;
+    margin: 0;
+    background: linear-gradient(to right, rgb(6, 211, 47), rgb(3, 150, 172), rgb(0, 128, 81));
+    height: 3px;
+    box-shadow: 0px 0 5px 1px rgba(39, 206, 21, 0.5);
+    border: none;
+    margin-bottom: 3vh;
+}
+.ejerBar2{
+    width: 99%;
+    margin: 0;
+    background: linear-gradient(270deg, rgb(245, 13, 13), rgb(152, 6, 23),rgb(155, 49, 74), rgb(223, 110, 110), rgb(166, 68, 133));
+    height: 3px;
+    box-shadow: 0px 0 5px 1px rgba(39, 206, 21, 0.5);
+    border: none;
+    margin-bottom: 3vh;
+}
+
+.navegadorPags {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    width: 33.333%;
+    height: 40px;
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    background-color: white;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.navegadorPags:hover:not(:active) {
+    background-color: #cf63dd;
+    color: white;
+}
+
+
+.navegadorPags:active {
+    background-color: #96549fb4;
+    color: white;
+}
+
+
+.navegadorPags.asideParcial {
+    font-weight: 480;
+    font-size: 100%;
+    width: 88%;
+    height: 55px;
+    text-align: left;
+    margin-left: 4%;
+    padding-left: 2%;
+    border-top: 1px solid #bebdbd;
+}
+
+.navegadorPags.articleParcial {
+    border: 1px solid purple;
+    border-radius: 4px;
+    width: 15%;
+    font-size: 1em;
+    height: 30px;
+    display: block;
+    float: right;
+    margin: 2%;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.navegadorPags.asideParcial.Ejercicios:hover:not(:active) {
+    background: linear-gradient(to right, rgb(6, 211, 47), rgb(3, 150, 172), rgb(0, 128, 81))
+}
+
+.navegadorPags.asideParcial.Ejercicios2:hover:not(:active) {
+    background: linear-gradient(270deg, rgb(245, 13, 13), rgb(152, 6, 23),rgb(155, 49, 74), rgb(223, 110, 110), rgb(166, 68, 133));
+}
+
+.navPagsCont {
+    padding: 0px;
+    margin-top: 0px;
+    border: none;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #bebdbd;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+    background: white;
+}
+
+.volver{
+    width: 52px;
+    height: 51px;
+    margin: 0px;
+    margin-left: 1%;
+    border: none;
+    padding: 0px;
+    margin-top: 10px;
+    background: url(Imagen6.png);
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+/*Aquí terminan los subelementos HTML*/
+
+barra-vertical {
+    margin-top: 3px;
+    border-left: 2px solid #bebdbd;
+    height: 35px;
+    position: absolute;
+    left: 33.3333%;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+div {
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+.contenedor img,
+.contenedor tL2 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.InfoInicio{
+    position: relative;
+    border: none;
+    width: 86%;
+    height: min-content;
+    text-align: justify;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: whitesmoke;
+    box-shadow: 0 5px 8px 1px rgba(0, 0, 0, 0.616);
+    display: grid;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    max-height: 50vh; /* Altura máxima del div para mostrar inicialmente */
+    overflow: hidden; /* Oculta el contenido que sobrepasa la altura máxima */
+    transition: max-height 0.3s ease; /* Transición suave para el cambio de altura */
+}
+
+.indicador {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.7em;
+}
+
+.InfoInicio:hover div.indicador{
+    animation: resaltar 1s infinite;
+}
+
+@keyframes resaltar {
+    50% {transform: scale(130%);}
+    100% {transform: scale(100%);}
+}
+
+.mostrar {
+    max-height: none; /* Quita la restricción de altura para mostrar todo el contenido */
+}
+
+.mostrar2::after{
+    content: '▼';
+}
+
+.InfoInicio:hover{
+    cursor: pointer;
+    transform: scale(103%);
+}
+.mapaCurricular{
+    margin: 0;margin: auto;
+    margin-bottom: 3%;
+    border: none;
+    width: 78%;
+    text-align: justify;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: whitesmoke;
+    box-shadow: 0 5px 8px 1px rgba(0, 0, 0, 0.616);
+    margin-top: 3vh;
+    display: inline-block;
+}
+.modulos{
+    display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    margin: 1vh;
+    padding: 1%;
+    width: 8em;
+    height: 8em;  
+    box-shadow: 0 5px 7px 0px rgba(0, 0, 0, 0.551);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.468);
+    transition-duration: 0.4s;
+}
+
+.modulos:hover{
+    width: 9em;
+    height: 9em;   
+}
+
+input{
+    border-radius: 1em;
+    width: 20%;
+    height: 4vh;
+    margin: 3vh;
+    margin-right: 0vw;
+}
+
+.validadores{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 1vh;
+   height: 4vh;
+   width: 5vw;
+   border: none;
+   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.551);
+   transition-duration: 0.4s;
+
+}
+
+.validadores:hover{
+    background-color: #831a1a;
+    color: white;
+    cursor: pointer;
+}
+/*Aquí terminan los apartados visuales/

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Ejercicios</title>
+    <link rel="stylesheet" href="EstilosFisica.css">
+</head>
+
+    <body onload="showText()"> 
+    <header style="padding: 0;">
+        <titulo><img src="Imagen1.png" width="293.6" height="38.2" onclick="paginaPrincipal()"></titulo>
+    </header>
+
+    <header class="headed3">
+        <div class="container">
+            <a href="Fisica1.html"><button class="volver"></button></a>
+            Ejercicios Guiados
+        </div>
+    </header>
+
+    <main class="mainParcial">
+        <aside class="asideParcial">
+            <h4>Índice <t>• 4 Unidades</t>
+            </h4>
+
+            <a href="#Ejercicios Velocidad"><button class="navegadorPags asideParcial Ejercicios"
+                    onclick="alternarElementos('ejerciciosPanel1')">Ejercicios Velocidad</button></a>
+
+            <a href="#Ejercicios Aceleracion"><button class="navegadorPags asideParcial Ejercicios"
+                    onclick="alternarElementos('ejerciciosPanel2')">Ejercicios Aceleracion</button></a>
+
+            <a href="#Ejercicios Caida libre"><button class="navegadorPags asideParcial Ejercicios"
+                    onclick="alternarElementos('ejerciciosPanel3')"> Ejercicios Caida libre</button></a>
+
+            <a href="#Ejercicios Tiro vertical"><button class="navegadorPags asideParcial Ejercicios"
+                    onclick="alternarElementos('ejerciciosPanel4')">Ejercicios Tiro vertical</button></a>
+
+            <img src="giphy (1).gif" width="97%">
+
+            <cargar></cargar>
+        </aside>
+
+        <barra-vertical style="left: 24%; height: 78vh; margin-top: 1%;"></barra-vertical>
+
+
+
+
+        <article style="width: 75%; padding: 0px; margin: 0px; border: none; padding-top: 10px; text-align: left;">
+            <t style="font-size: 17px;" id="ejerciciosPanel1">
+                <h3 style="font-size: 3dvh;"><a name=‘Ejercicios Velocidad’>Ejercicios Velocidad</a></h3>
+                <p style="font-weight: bold;">1.- Un camión avanza al norte con movimiento rectilínea uniforme 15km en
+                    2.5h ¿Cuál es su velocidad?
+                </p>
+                <article class="datos">
+                    <div class=‘ej’ style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='display: grid; text-align: left;'>Dirección = Norte(positiva)<br>
+                            Distancia = 15km<br>
+                            Tiempo = 2.5h<br>
+                            Velocidad = ? (Incognita a resolver)
+                        </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='display: grid; text-align: left;'>V = ▲d/▲t</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='display: grid;  text-align: left;'>V = ▲15km/▲2.5h<br> V=6km/h</p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio1-->
+
+                <p style="font-weight: bold;">2.- ¿Cuál es el desplazamiento en 8s de un balín que se mueve en línea
+                    recta a una velocidad
+                    constante al sur a 4m/S?</p>
+                <article class="datos">
+                    <div class='ej' style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='display: grid; text-align: left;'>Dirección = Sur(negativa)<br>
+                            Distancia = ? (Incognita a resolver)<br>
+                            Tiempo = 8s<br>
+                            Velocidad = -4m/s (negativa por la dirección)</p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='display: grid; text-align: left;'>▲d = (v)(▲t) [Por despeje]</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='display: grid; text-align: left;'>▲d = (-4m/s)(8s)<br> d=-32m</p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio 2-->
+
+                <p style="font-weight: bold;">3.- ¿Un tren de juguete avanza 2.8m en dirección positiva con movimiento
+                    rectilíneo uniforme en 45s ¿Cuál es su velocidad?</p>
+                <article class="datos">
+                    <div class='ej' style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='display: grid; text-align: left;'>Dirección = Positiva<br>
+                            Distancia = 2.8m <br>
+                            Tiempo = 45s<br>
+                            Velocidad = ? (Incognita a resolver) </p>
+                    </div>
+
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='display: grid; text-align: left;'>V = ▲d/▲t</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='display: grid;  text-align: left;'>V = 2.8m/45s<br> d=0.062m/s</p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio 3-->
+
+                <p style="font-weight: bold;">4.- ¿Cuál es el desplazamiento en 8 minutos de un automovil que se mueve
+                    en línea recta a una velocidad constante de 68km/h?</p>
+                <article class="datos">
+                    <div class='ej' style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='display: grid; text-align: left;'>Dirección = Positiva (la velocidad lo indica)<br>
+                            Distancia = ? (Incognita a resolver) <br>
+                            Tiempo = 8min<br>
+                            Velocidad = 68km/h </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='display: grid; text-align: left;'>▲d = (v)(▲t) [Por despeje]</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>▲d = (68km/h)/60(8min) [dividir entre 60 para
+                            converisón de unidades hora -> minutos]<br> d=9.066km</p>
+                    </div>
+                </article>
+                <hr style='width: 99%;'>
+            </t>
+
+            <t style="font-size: 17px;" id="ejerciciosPanel2">
+                <h3 style="font-size: 3dvh;"><a name=‘Ejercicios Velocidad’>Ejercicios Aceleración</a></h3>
+                <p style="font-weight: bold;">1.- Una bola de boliche es lanzada por una canaleta con una aceleración
+                    constante de manera que su velocidad
+                    aumenta en 2m/s en 1.8s ¿Cuál es su aceleración?
+                </p>
+                <article class="datos">
+                    <div class=‘ej’ style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='text-align: left;'>Diferencia de velocidad= 2m/s<br>
+                            Tiempo = 1.8s<br>
+                            Aceleracion = ? (Incognita a resolver)
+                        </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='text-align: left;'>a = v/t</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>a = (2m/s)/1.8<br> a=1.11m/s<sup>2</sup></p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio1-->
+
+                <p style="font-weight: bold;">2.- ¿Cuanto tiempo se requiere para que un automovil que parte del reposo
+                    alcance una velocidad de -80km/h si tiene movimiento rectilineo uniformemente acelerado (el valor de
+                    la aceleración es de -6km/h)?</p>
+                <article class="datos">
+                    <div class='ej' style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='text-align: left;'>
+                            Aceleracion = -6km/h<br>
+                            Tiempo = ? (Incognita a resolver)<br>
+                            Velocidad final = -80km/h</p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='text-align: left;'>▲t = (▲v)/(a) [Por despeje]</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>▲t = (-80km/h)/(-6km/h)<br> t=13.3h</p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio 2-->
+                <hr style='width: 99%;'>
+            </t>
+
+            <t style="font-size: 17px;" id="ejerciciosPanel3">
+                <h3 style="font-size: 3dvh;"><a name=‘Ejercicios Caida libre'>Ejercicios Caída Libre</a></h3>
+                <p style="font-weight: bold;">1.- Una ´pelota cae de una altura de 27m ¿Cuánto tiempo tardará en
+                    alcanzar el suelo sin tomar en cuenta la resistencia del aire?
+                </p>
+                <article class="datos">
+                    <div class=‘ej’ style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='text-align: left;'>Altura (distancia) = 27m<br>
+                            Tiempo = ? (Incognita a resolver)<br>
+                            Aceleracion = 9.81m/s<sup>2</sup>
+                        </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='text-align: left;'>▲t<sup>2</sup> = a(d)(2)</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>▲t = ((27m)(2))/9.81m/s<sup>2</sup><br> 
+                            ▲t = (54m)/9.81m/s<sup>2</sup><br> 
+                            ▲t = 2.34s<sup></sup></p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio1-->
+                <hr style='width: 99%;'>
+            </t>
+
+            <t style="font-size: 17px;" id="ejerciciosPanel4">
+                <h3 style="font-size: 3dvh;"><a name=‘Ejercicios Tiro libre'>Ejercicios Tiro Libre</a></h3>
+                <p style="font-weight: bold;">1.- Un albañil lanza 10m/suna tabique esperando que uno de sus compañeros
+                    que está en un nivel superior de la construcción a una altura de 4m lo tome
+                    ¿El tabique alcanzará una altura suficiente?
+                </p>
+                <article class="datos">
+                    <div class=‘ej’ style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='text-align: left;'>Altura minima (distancia) = 4m<br>
+                            Velocidad Inicial = 10m/s<br>
+                            Altura Alcanzada (distancia) = ? (Incognita a resolver)<br>
+                            Aceleracion = 9.81m/s<sup>2</sup>
+                        </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='text-align: left;'>▲d = Vi<sup>2</sup>/2a</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>▲d = (10m/s)<sup>2</sup>/2(9.81m/s<sup>2</sup>)<br>
+                            ▲d = 100m/s<sup></sup>/19.62m/s<sup>2</sup><br>
+                            ▲d = 5.09m La altura es mayor a 4m. (suficiente)<sup></sup></p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                <!--Ejercicio1-->
+
+                <p style="font-weight: bold;">2.- Una gimanaste lanza una pelota en tiro vertical con una velocidad de 18m/s 
+                    ¿Cuánto tardará la pelota en regresar a su punto de partida?
+                </p>
+                <article class="datos">
+                    <div class=‘ej’ style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='text-align: left;'>
+                            Velocidad Inicial = 18m/s<br>
+                            Tiempo Total = ? (Incognita a resolver)<br>
+                            Aceleracion = 9.81m/s<sup>2</sup>
+                        </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='text-align: left;'>Tt = 2(Vi)/a</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>Tt = 2(18m/s)/(9.81m/s<sup>2</sup>)<br>
+                            Tt = (36m/s)/9.81m/s<sup>2</sup><br>
+                            Tt = 3.66s</p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                 <!--Ejercicio2-->
+
+                 <p style="font-weight: bold;">3.- Aldo lanza un volado en tiro vertical con una velocidad inicial de 5m/s<br>
+                    a) ¿En cuanto tiempo alcanzará una altura máxima?
+                    b) ¿Cuál es el timepo total de vuelo de la moneda?
+                </p>
+                <article class="datos">
+                    <div class=‘ej’ style='grid-column: 1;'><strong>Datos:</strong>
+                        <p style='text-align: left;'>
+                            Velocidad Inicial = 5m/s<br>
+                            Tiempo Total = ? (Incognita a resolver)<br>
+                            Tiempo Máximo = ? (Incognita a resolver)<br>
+                            Aceleracion = 9.81m/s<sup>2</sup>
+                        </p>
+                    </div>
+                    <div class='ej'
+                        style='grid-column: 2; border-left: 3px dashed gray; border-right: 3px dashed gray;'>
+                        <strong>Formulas:</strong>
+                        <p style='text-align: left;'>a) Tmáx = Vi/a<br>
+                                                     b) Tt = 2(Vi)/a</p>
+                    </div>
+                    <div class='ej' style='grid-column: 3;'><strong>Resultados:</strong>
+                        <p style='text-align: left;'>a) Tmáx = (5m/s)/(9.81m/s<sup>2</sup>)<br>
+                            a) Tmáx = (5m/s)/9.81m/s<sup>2</sup><br>
+                            a) Tmáx = 0.509s<br>
+                            <br>
+                            b) Tt = 2(5m/s)/(9.81m/s<sup>2</sup>)<br>
+                            b) Tt = (10m/s)/9.81m/s<sup>2</sup><br>
+                            b) Tt = 1.018s</p>
+                    </div>
+                </article>
+                <hr class='ejerBar'>
+
+                 <!--Ejercicio3-->
+
+                <hr style='width: 99%;'>
+            </t>
+        </article>
+    </main>
+
+    <footer>
+        <aside style="margin-left: 1%;">Publicado: 19 de Abril de 2024</aside>
+        <aside style="margin-right: 1%;">Autor: Gael Basurto Chávez<aside>
+    </footer>
+    <script src="fisicaPaneles.js"></script>
+</body>
+
+</html>
