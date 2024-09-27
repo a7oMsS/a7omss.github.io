@@ -1,238 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smoke Simulation</title>
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-        }
-    </style>
+    <title>PRÁCTICAS RETO</title>
+    <link rel="stylesheet" href="practiEstilos.css">
 </head>
+<body style="background-image: url(fondo.jpg);">
+    <header>ARREGLOS RETO</header>
 
-<body>
-    <canvas id="smokeCanvas"></canvas>
+    <div class="container">
+        <div class="category" id="seleccionar">
+            <h3>JUGANDO CON ARREGLOS</h3>
+            <button onclick="crearYAccederAmigos()">Amigos...</button>
+            <button onclick="agregarYEliminarElementos()">Agregar y Destruir</button>
+            <button onclick="recorrerArreglo()">Imprimir la semana</button>
+            <button onclick="buscarElemento(Number(prompt('¿Cuál número quieres buscar en el arreglo?')))">Busqueda y rescate</button>
+            <button onclick="ordenarArreglo()">Ordenando Ando</button>
+            <button onclick="filtrarElementos()">Filtros</button>
+            <button onclick="combinarArreglos()">Combinación Irrepetible</button>
+        </div>
+        <div class="category" id="resultado">
+            <p id="salida"></p>
+            <button onclick="volver()">Volver</button>
+        </div>
+    </div>
 
-    <script>
-
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
-
-        if (isMobileDevice()) {
-            const canvas = document.getElementById('smokeCanvas');
-        const ctx = canvas.getContext('2d');
-
-        const PARTICLE_RADIUS = 30;
-        const COLOR_CHANGE_INTERVAL = 1000; // Cambiar el color cada 1 segundo
-        const FADE_SPEED = 1; // Velocidad de desvanecimiento
-        const BRIGHTNESS_DECREASE = 8; // Velocidad de reducción del brillo
-
-        let particles = [];
-        let currentColor = getRandomColor();
-
-        function resizeCanvas() {
-            const { width, height } = canvas.getBoundingClientRect();
-            canvas.width = width;
-            canvas.height = height;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas(); // Ajustar al tamaño de la ventana
-
-        setInterval(() => {
-            currentColor = getRandomColor();
-        }, COLOR_CHANGE_INTERVAL);
-
-        canvas.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            const rect = canvas.getBoundingClientRect();
-            const touch = e.touches[0];
-            const x = touch.clientX - rect.left;
-            const y = touch.clientY - rect.top;
-            generateSmokeParticle(x, y);
-        });
-
-        function generateSmokeParticle(x, y) {
-            particles.push(new SmokeParticle(x, y, currentColor));
-        }
-
-        function moveParticles() {
-            for (let particle of particles) {
-                particle.move();
-            }
-            particles = particles.filter(p => p.alpha > 0); // Filtrar partículas con alpha > 0
-        }
-
-        function getRandomColor() {
-            const red = Math.floor(Math.random() * 256);
-            const green = Math.floor(Math.random() * 256);
-            const blue = Math.floor(Math.random() * 256);
-            return { r: red, g: green, b: blue, a: 128 / 255 }; // Agregar transparencia al color
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let particle of particles) {
-                ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${particle.alpha})`;
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, PARTICLE_RADIUS, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        class SmokeParticle {
-            constructor(x, y, color) {
-                this.x = x;
-                this.y = y;
-                this.originalColor = { ...color };
-                this.alpha = color.a;
-                this.brightness = 255; // Brillo máximo inicial (blanco)
-                this.color = this.mixColors(color, { r: 255, g: 255, b: 255, a: 1 }, this.brightness);
-                const angle = Math.random() * 2 * Math.PI;
-                const speed = 1 + Math.random() * 2;
-                this.dx = Math.cos(angle) * speed;
-                this.dy = Math.sin(angle) * speed;
-            }
-
-            move() {
-                this.x += this.dx;
-                this.y += this.dy;
-                this.alpha = Math.max(0, this.alpha - FADE_SPEED / 255);
-                this.brightness = Math.max(0, this.brightness - BRIGHTNESS_DECREASE);
-                this.color = this.mixColors(this.originalColor, { r: 255, g: 255, b: 255, a: 1 }, this.brightness);
-            }
-
-            mixColors(color1, color2, ratio) {
-                const red = Math.floor((color1.r * (255 - ratio) + color2.r * ratio) / 255);
-                const green = Math.floor((color1.g * (255 - ratio) + color2.g * ratio) / 255);
-                const blue = Math.floor((color1.b * (255 - ratio) + color2.b * ratio) / 255);
-                return { r: red, g: green, b: blue, a: this.alpha };
-            }
-        }
-
-        function animate() {
-            moveParticles();
-            draw();
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-        } else {
-            
-
-        const canvas = document.getElementById('smokeCanvas');
-        const ctx = canvas.getContext('2d');
-
-        const PARTICLE_RADIUS = 40;
-        const COLOR_CHANGE_INTERVAL = 1000; // Cambiar el color cada 1 segundo
-        const FADE_SPEED = 1; // Velocidad de desvanecimiento
-        const BRIGHTNESS_DECREASE = 8; // Velocidad de reducción del brillo
-
-        let particles = [];
-        let currentColor = getRandomColor();
-
-        function resizeCanvas() {
-            const { width, height } = canvas.getBoundingClientRect();
-            canvas.width = width;
-            canvas.height = height;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas(); // Ajustar al tamaño de la ventana
-
-        setInterval(() => {
-            currentColor = getRandomColor();
-        }, COLOR_CHANGE_INTERVAL);
-
-        canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            generateSmokeParticle(x, y);
-        });
-
-        function generateSmokeParticle(x, y) {
-            particles.push(new SmokeParticle(x, y, currentColor));
-        }
-
-        function moveParticles() {
-            for (let particle of particles) {
-                particle.move();
-            }
-            particles = particles.filter(p => p.alpha > 0); // Filtrar partículas con alpha > 0
-        }
-
-        function getRandomColor() {
-            const red = Math.floor(Math.random() * 256);
-            const green = Math.floor(Math.random() * 256);
-            const blue = Math.floor(Math.random() * 256);
-            return { r: red, g: green, b: blue, a: 128 / 255 }; // Agregar transparencia al color
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let particle of particles) {
-                ctx.fillStyle = `rgba(${particle.color.r}, ${particle.color.g}, ${particle.color.b}, ${particle.alpha})`;
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, PARTICLE_RADIUS, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        class SmokeParticle {
-            constructor(x, y, color) {
-                this.x = x;
-                this.y = y;
-                this.originalColor = { ...color };
-                this.alpha = color.a;
-                this.brightness = 255; // Brillo máximo inicial (blanco)
-                this.color = this.mixColors(color, { r: 255, g: 255, b: 255, a: 1 }, this.brightness);
-                const angle = Math.random() * 2 * Math.PI;
-                const speed = 1 + Math.random() * 2;
-                this.dx = Math.cos(angle) * speed;
-                this.dy = Math.sin(angle) * speed;
-            }
-
-            move() {
-                this.x += this.dx;
-                this.y += this.dy;
-                this.alpha = Math.max(0, this.alpha - FADE_SPEED / 255);
-                this.brightness = Math.max(0, this.brightness - BRIGHTNESS_DECREASE);
-                this.color = this.mixColors(this.originalColor, { r: 255, g: 255, b: 255, a: 1 }, this.brightness);
-            }
-
-            mixColors(color1, color2, ratio) {
-                const red = Math.floor((color1.r * (255 - ratio) + color2.r * ratio) / 255);
-                const green = Math.floor((color1.g * (255 - ratio) + color2.g * ratio) / 255);
-                const blue = Math.floor((color1.b * (255 - ratio) + color2.b * ratio) / 255);
-                return { r: red, g: green, b: blue, a: this.alpha };
-            }
-        }
-
-        function animate() {
-            moveParticles();
-            draw();
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-        }
-    </script>
+    <script src="practicas.js"></script>
 </body>
-
 </html>

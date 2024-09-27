@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    background-color: #23034d;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-size: 2.2em;
+    min-height: 5vh;
+}
+
+h3{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    color: white;
+    font-size: 1.5em;
+    line-height: 0em;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 83vh;
+}
+
+.category {
+    min-width: 30%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.515);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+button {
+    display: block;
+    width: 90%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: auto auto 10px auto;
+    font-family: monospace
+}
+
+button:hover {
+    background-color: #acacac;
+}
+
+button:active {
+    background-color: #909090;
+}
+
+#resultado{
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1em;
+}
