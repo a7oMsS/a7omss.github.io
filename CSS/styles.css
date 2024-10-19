@@ -1,0 +1,158 @@
+/*ELEMENTOS SEMÁNTICOS*/
+body {
+    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    min-height: 100vh;
+}
+
+nav {
+    background-color: rgb(30, 30, 30) !important;
+    min-height: 13vh;
+}
+
+.mainFlex{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+    height: 78vh;
+}
+
+.mainGrid{
+    width: 30%;
+    border-radius: 10px;
+    background-color: rgb(20,20,20);
+}
+
+.mainGrid header{
+     border-bottom: 2px solid rgb(48, 48, 48);
+     padding: 8px 20px;
+}
+.mainGrid div{
+    padding: 5px 10px;
+}
+.mainGrid .result{
+    padding: 9px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.mainGrid button{
+    width: 30%;
+}
+.mainGrid div .alert{
+    width: 65%;
+    margin: 0;
+}
+
+.imgCont{
+    width: 30%;
+    border-radius: 10px;
+    background-color: rgb(20,20,20);
+}
+
+/*TEXTO*/
+h1 {
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0em;
+}
+
+h3 {
+    color: white;
+    margin-bottom: 0px;
+}
+.titulo{
+    color: rgb(202, 202, 202);
+    margin-left: 8px;
+    line-height: 0.8em;
+}
+
+/*COMPONENTES*/
+.dropdown-menu {
+    overflow-y: auto;
+}
+
+label {
+    color: white;
+}
+
+input {
+    background-color: rgb(30, 30, 30) !important;
+    border: none !important;
+    color: white !important;
+}
+
+.img-fluid {
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    filter: invert(1);
+}
+
+/*Tamaños*/
+@media (max-width: 700px) {
+    .mainFlex{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 20px;
+        height: 78vh;
+    }
+
+    h1{
+        text-align: center;
+    }
+    .mainGrid{
+        width: 90%;
+        border-radius: 10px;
+        background-color: rgb(20,20,20);
+    }
+    
+    .imgCont{
+        width: 90%;
+        border-radius: 10px;
+        background-color: rgb(20,20,20);
+    }
+
+    .img-fluid {
+        max-width: 330px !important;
+        height: auto;
+        margin: 0 auto;
+    }
+     
+}
+
+@media (max-width: 400px) {
+    .mainFlex{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 20px;
+        height: 78vh;
+    }
+
+    h1{
+        text-align: center;
+    }
+    .mainGrid{
+        width: 90%;
+        border-radius: 10px;
+        background-color: rgb(20,20,20);
+    }
+    
+    .imgCont{
+        width: 90%;
+        border-radius: 10px;
+        background-color: rgb(20,20,20);
+    }
+    .img-fluid {
+        max-width: 200px !important;
+        height: auto;
+        margin: 0 auto;
+    }
+     
+}
