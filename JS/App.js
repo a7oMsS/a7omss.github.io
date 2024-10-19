@@ -2,18 +2,18 @@ let app = new Vue({
     el: "#app",
   data:{
     figuras2D: [
-      { nombre: "Círculo", inputs: [{ id: "radio", label: "Radio" }], tipo: "2D", imagen: "imgs/circulo.png" },
-      { nombre: "Triángulo", inputs: [{ id: "base", label: "Base" }, { id: "altura", label: "Altura" }], tipo: "2D", imagen: "imgs/triangulo.png" },
-      { nombre: "Rectángulo", inputs: [{ id: "largo", label: "Largo" }, { id: "ancho", label: "Ancho" }], tipo: "2D", imagen: "imgs/rectangulo.png" },
-      { nombre: "Cuadrado", inputs: [{ id: "lado", label: "Lado" }], tipo: "2D", imagen: "imgs/cuadrado.png" },
-      { nombre: "Pentágono", inputs: [{ id: "lado", label: "Lado" }, { id: "apotema", label: "Apotema" }], tipo: "2D", imagen: "imgs/pentagono.png" }
+      { nombre: "Círculo", inputs: [{ id: "radio", label: "Radio" }], tipo: "2D", imagen: "IMGS/circulo.png" },
+      { nombre: "Triángulo", inputs: [{ id: "base", label: "Base" }, { id: "altura", label: "Altura" }], tipo: "2D", imagen: "IMGS/triangulo.png" },
+      { nombre: "Rectángulo", inputs: [{ id: "largo", label: "Largo" }, { id: "ancho", label: "Ancho" }], tipo: "2D", imagen: "IMGS/rectangulo.png" },
+      { nombre: "Cuadrado", inputs: [{ id: "lado", label: "Lado" }], tipo: "2D", imagen: "IMGS/cuadrado.png" },
+      { nombre: "Pentágono", inputs: [{ id: "lado", label: "Lado" }, { id: "apotema", label: "Apotema" }], tipo: "2D", imagen: "IMGS/pentagono.png" }
     ],
     // Figuras tridimensionales (Volumen)
     figuras3D: [
-      { nombre: "Esfera", inputs: [{ id: "radio", label: "Radio" }], tipo: "3D", imagen: "imgs/esfera.png" },
-      { nombre: "Cubo", inputs: [{ id: "lado", label: "Lado" }], tipo: "3D", imagen: "imgs/cubo.png" },
-      { nombre: "Cilindro", inputs: [{ id: "radio", label: "Radio" }, { id: "altura", label: "Altura" }], tipo: "3D", imagen: "imgs/cilindro.png" },
-      { nombre: "Cono", inputs: [{ id: "radio", label: "Radio" }, { id: "altura", label: "Altura" }], tipo: "3D", imagen: "imgs/cono.png" }
+      { nombre: "Esfera", inputs: [{ id: "radio", label: "Radio" }], tipo: "3D", imagen: "IMGS/esfera.png" },
+      { nombre: "Cubo", inputs: [{ id: "lado", label: "Lado" }], tipo: "3D", imagen: "IMGS/cubo.png" },
+      { nombre: "Cilindro", inputs: [{ id: "radio", label: "Radio" }, { id: "altura", label: "Altura" }], tipo: "3D", imagen: "IMGS/cilindro.png" },
+      { nombre: "Cono", inputs: [{ id: "radio", label: "Radio" }, { id: "altura", label: "Altura" }], tipo: "3D", imagen: "IMGS/cono.png" }
     ],
     figuraSeleccionada: null,
     valores: {},
