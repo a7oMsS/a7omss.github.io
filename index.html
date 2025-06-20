@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphentaro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="a">
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            border: none;
+            padding: 0;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+            color: #374151;
+            /* text-gray-800 */
+            -webkit-font-smoothing: antialiased;
+            /* antialiased */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            /* mx-auto */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            /* px-4 */
+            padding-right: 1rem;
+            /* px-4 */
+        }
+
+        /* Estilos del encabezado */
+        .header {
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+            /* bg-gradient-to-r from-indigo-600 to-purple-700 */
+            color: #ffffff;
+            /* text-white */
+            padding: 1.5rem;
+            /* p-6 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            /* shadow-lg */
+            text-align: center;
+            font-family: 'Comfortaa';
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:p-8 */
+            .header {
+                padding: 2rem;
+            }
+        }
+
+        .header-title {
+            font-size: 2.25rem;
+            /* text-4xl */
+            font-weight: 700;
+            /* font-bold */
+            margin-bottom: 1rem;
+            /* mb-4 */
+            display: inline-block;
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:text-6xl */
+            .header-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .header-title-highlight {
+            color: #c7d2fe;
+            font-family: 'Rubiks';
+        }
+
+        .header-subtitle {
+            font-size: 1.25rem;
+            /* text-xl */
+            font-weight: 300;
+            /* font-light */
+            opacity: 0.9;
+            /* opacity-90 */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:text-2xl */
+            .header-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Contenido principal */
+        .main-content {
+            padding-top: 2rem;
+            /* py-8 */
+            padding-bottom: 2rem;
+            /* py-8 */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:py-12 */
+            .main-content {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+
+        /* Secciones */
+        .section {
+            background-color: #ffffff8c;
+            /* bg-white */
+            backdrop-filter: blur(2);
+            padding: 1.5rem;
+            /* p-6 */
+            border-radius: 1rem;
+            /* rounded-2xl */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            /* shadow-xl */
+            margin-bottom: 3rem;
+            /* mb-12 */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:p-8 */
+            .section {
+                padding: 2rem;
+            }
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            /* text-3xl */
+            font-weight: 700;
+            /* font-bold */
+            color: #4338ca;
+            /* text-indigo-700 */
+            margin-bottom: 1.5rem;
+            /* mb-6 */
+            padding-bottom: 0.5rem;
+            /* pb-2 */
+            border-bottom: 2px solid #c7d2fe;
+            /* border-b-2 border-indigo-200 */
+            display: inline-block;
+            /* to make border-bottom only under the text */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:text-4xl */
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        .section-title-highlight {
+            color: #9333ea;
+            /* text-purple-600 */
+        }
+
+        .prose {
+            max-width: none;
+            /* max-w-none */
+            font-size: 1.125rem;
+            /* text-lg */
+            color: #4b5563;
+            /* text-gray-700 */
+            line-height: 1.625;
+            /* leading-relaxed */
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+        }
+
+        .prose strong {
+            font-weight: 600;
+            /* font-semibold */
+        }
+
+        .prose ul {
+            list-style: disc;
+            list-style-position: inside;
+            margin-top: 1rem;
+            /* mt-4 */
+            padding-left: 0;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+            /* space-y-2 (for li elements) */
+        }
+
+        .prose li span {
+            font-weight: 500;
+            /* font-medium */
+            color: #374151;
+            /* text-gray-800 */
+        }
+
+        /* Simbología y Significado - Grid */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            /* grid-cols-1 */
+            gap: 2rem;
+            /* gap-8 */
+        }
+
+        @media (min-width: 640px) {
+
+            /* sm:grid-cols-2 */
+            .symbols-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+
+            /* lg:grid-cols-3 */
+            .symbols-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .symbol-card {
+            background-color: #f9fafb;
+            /* bg-gray-50 */
+            padding: 1.5rem;
+            /* p-6 */
+            border-radius: 0.75rem;
+            /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            /* shadow-md */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            /* transition-transform transform duration-300 */
+        }
+
+        .symbol-card:hover {
+            transform: scale(1.05);
+            /* hover:scale-105 */
+        }
+
+        .symbol-card h3 {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 700;
+            /* font-bold */
+            color: #4f46e5;
+            /* text-indigo-600 */
+            margin-bottom: 0.5rem;
+            /* mb-2 */
+        }
+
+        .symbol-card p {
+            font-size: 1.125rem;
+            /* text-lg */
+            color: #4b5563;
+            /* text-gray-700 */
+            margin-bottom: 0.5rem;
+            /* mb-2 */
+        }
+
+        .symbol-card p:last-of-type {
+            font-size: 1rem;
+            /* text-base */
+            color: #4b5563;
+            /* text-gray-600 */
+            margin-bottom: 0;
+        }
+
+        /* Estilo para los símbolos individuales dentro de las tarjetas */
+        .alphabet-symbol {
+            font-size: 3rem;
+            /* Tamaño grande para los símbolos */
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .alphabet-symbol:hover {
+            color: #6d28d9;
+            /* Un morado más oscuro al pasar el ratón */
+            transform: scale(1.1);
+            /* Ligeramente más grande al pasar el ratón */
+        }
+
+        /* Estilo para simular un símbolo si no tienes imágenes aún */
+        .symbol-placeholder {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Sphentaro';
+            justify-content: center;
+            width: 80px;
+            /* Ancho del contenedor del símbolo */
+            height: 80px;
+            /* Alto del contenedor del símbolo */
+            background-color: #e0e7ff;
+            /* Un azul claro */
+            border-radius: 12px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4f46e5;
+            /* Un azul más oscuro */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1rem;
+            /* mb-4 */
+        }
+
+        .symbol-placeholder:hover {
+            background-color: #c7d2fe;
+            /* Color más oscuro al pasar el ratón */
+            transform: translateY(-3px);
+            /* Ligeramente elevado al pasar el ratón */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Reglas y Estructura - Ejemplo de Escritura */
+        .example-box {
+            background-color: #f3f4f6;
+            /* bg-gray-100 */
+            padding: 1rem;
+            /* p-4 */
+            border-radius: 0.5rem;
+            /* rounded-lg */
+            border: 1px solid #e5e7eb;
+            /* border border-gray-200 */
+            margin-top: 1rem;
+            /* mt-4 */
+            margin-bottom: 1.5rem;
+            /* mb-6 */
+        }
+
+        .alphabet-example-text {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 700;
+            /* font-bold */
+            text-align: center;
+            /* text-center */
+            color: #3730a3;
+            /* text-indigo-800 */
+            letter-spacing: 0.1em;
+            /* Espaciado entre letras para un efecto visual */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-family: 'Sphentaro'
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:text-3xl */
+            .alphabet-example-text {
+                font-size: 1.875rem;
+            }
+        }
+
+        .alphabet-example-translation {
+            font-size: 1.125rem;
+            /* text-lg */
+            text-align: center;
+            /* text-center */
+            color: #4b5563;
+            /* text-gray-600 */
+            margin-top: 0.5rem;
+            /* mt-2 */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:text-xl */
+            .alphabet-example-translation {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Descarga la Fuente */
+        .download-button {
+            display: inline-block;
+            background-color: #4f46e5;
+            /* bg-indigo-600 */
+            color: #ffffff;
+            /* text-white */
+            font-weight: 700;
+            /* font-bold */
+            padding: 0.75rem 2rem;
+            /* py-3 px-8 */
+            border-radius: 9999px;
+            /* rounded-full */
+            font-size: 1.25rem;
+            /* text-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            /* shadow-lg */
+            transform: scale(1);
+            /* initial transform for transition */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            /* transition-transform hover:scale-105 duration-300 */
+        }
+
+        .download-button:hover {
+            background-color: #4338ca;
+            /* hover:bg-indigo-700 */
+            transform: scale(1.05);
+            /* hover:scale-105 */
+        }
+
+        .instructions-box {
+            margin-top: 2rem;
+            /* mt-8 */
+            text-align: left;
+            /* text-left */
+            max-width: 42rem;
+            /* max-w-2xl */
+            margin-left: auto;
+            /* mx-auto */
+            margin-right: auto;
+            /* mx-auto */
+        }
+
+        .instructions-box h3 {
+            font-size: 1.25rem;
+            /* text-xl */
+            font-weight: 600;
+            /* font-semibold */
+            color: #4338ca;
+            /* text-indigo-700 */
+            margin-bottom: 0.75rem;
+            /* mb-3 */
+        }
+
+        /* Contacto */
+        .contact-info p {
+            font-size: 1.25rem;
+            /* text-xl */
+        }
+
+        .contact-info span {
+            font-weight: 700;
+            /* font-bold */
+            color: #4f46e5;
+            /* text-indigo-600 */
+        }
+
+        .contact-info a {
+            color: #9333ea;
+            /* text-purple-600 */
+            margin-left: 0.5rem;
+            /* ml-2 */
+            transition: text-decoration 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            /* hover:underline */
+        }
+
+        /* Pie de página */
+        .footer {
+            background-color: #1f2937;
+            /* bg-gray-800 */
+            color: #ffffff;
+            /* text-white */
+            padding: 1.5rem;
+            /* p-6 */
+            margin-top: 3rem;
+            /* mt-12 */
+            text-align: center;
+            /* text-center */
+        }
+
+        @media (min-width: 768px) {
+
+            /* md:p-8 */
+            .footer {
+                padding: 2rem;
+            }
+        }
+
+        .footer p {
+            font-size: 1.125rem;
+            /* text-lg */
+        }
+
+        .footer .small-text {
+            font-size: 0.875rem;
+            /* text-sm */
+            margin-top: 0.5rem;
+            /* mt-2 */
+            opacity: 0.8;
+            /* opacity-80 */
+        }
+
+        .footer-highlight {
+            color: #818cf8;
+            /* text-indigo-400 */
+        }
+
+        @font-face {
+            font-family: 'Sphentaro';
+            src: url(Sphentaro-Regular.otf);
+        }
+
+        @font-face {
+            font-family: 'Comfortaa';
+            src: url(Comfortaa-VariableFont_wght.ttf);
+        }
+
+        @font-face {
+            font-family: 'Rubiks';
+            src: url(Rubik80sFade-Regular.ttf);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Encabezado de la página -->
+    <header class="header">
+        <div class="container text-center">
+            <h1 class="header-title">
+                <span class="header-title-highlight">Sphentaro</span>
+            </h1>
+            <p class="header-subtitle">
+                Una pequeña travesía a través de su historia y significado
+            </p>
+        </div>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main class="container main-content">
+
+        <!-- Sección: Sobre el Alfabeto -->
+        <section id="about" class="section">
+            <h2 class="section-title">
+                📖 Sobre <span class="section-title-highlight">Sphentaro</span>
+            </h2>
+            <div class="prose">
+                <p>
+                    <strong style="color: #4f46e5;">Sphentaro</strong> es un proyecto informal surgido como una broma que se convirtió en algo más. 
+                    Este alfabeto no es solo un conjunto de símbolos; es una manifestación
+                    artística y conceptual que busca <strong style="color: #9333ea;">darle valor a las ideas propias y enorgullecer al niño que llevamos dentro</strong>. Una forma de diversión.
+                </p>
+                <p>
+                    Sphentaro es el nombre que se le da a este nuevo alfabeto creado por Karim y Gael (Yo):<br>
+                    La idea es sencilla, decidimos crear un sistema propio de escritura pero sin que fuera demasiado complicado.
+                    Explorando distintos alfabetos y lenguas hicimos un popurrí de los conceptos más básicos de la escritura: <br>
+                    Tenía que ser fonético, con símbolos fáciles de recordar y escribir (especialmente cuando se requiere escribir mucho) y muy importante,
+                    tenía que significar algo. Fue entonces cuando llegó la brillante idea de hacer uso de figuras valiosas para nosotros: <strong style="color: #086b17;">Tortugas </strong> y <strong style="color: black;">pingüinos</strong>.
+                    Nuestros animales favoritos representados y compartidos de una forma creativa. De ahí surgió el nombre; <i>"Spheniscidae"</i> el nombre científico del pingüino y <i>"Tartarūchus"</i> el (quizá) origen etimológico de la tortuga, juntos forman
+                    <strong>Sphentaro</strong>.
+                </p>
+                <p>
+                    Basado en el actual alfabeto español, cada grafo tiene un equivalente a un sonido del idioma español.<br>
+                    Este está conformado por 13 figuras que representan tortugas, 13 que representan pingüinos y 1 koala (para que fuera equitativo).
+                    Cada trazo y curva ha sido diseñado meticulosamente para cumplir con ciertos estándares de calidad y naturaleza.
+                    Para que fueran sencillos cada uno cuenta con entre 3 y 5 trazos de curvas y rectas.
+                </p>
+                <p>
+                    El proceso de desarrollo aunque tardado, estuvo bien planeado.
+                    Decidimos que cada símbolo no solo fueran por ser, si no que inspiraran sensaciones e ideas.<br>
+                    Para ello veíamos detenidamente cada letra y escuchábamos sus sonidos con la intención de encontrar esa chispa que nos dijera:
+                    "Esta letra es como un..." o "Cuando pienso en aquella letra es como si pensara en...". O en palabras más sencillas, buscamos <strong style="color: #4f46e5;">como sería una letra si fuera un animal</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: Simbología y Significado -->
+        <section id="symbology" class="section">
+            <h2 class="section-title">
+                🔠 Simbología y Significado
+            </h2>
+            <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 2rem;">
+                Aquí, cada símbolo de <strong style="color: #9333ea;">Sphentaro</strong> cobra vida, revelando su
+                correspondencia y el profundo significado que encierra.
+            </p>
+
+            <div class="symbols-grid">
+                <!-- Ejemplo de Símbolo 1 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">A</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: A</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga tirada en el suelo tomando café.
+                    </p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 2 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">B</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: B</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino congelado en un cubo de hielo.
+                    </p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 3 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">C</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: C</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga acostado en la arena.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 4 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">D</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: D</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino gordo...</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 5 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">E</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: E</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga meditando (o eso creemos).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 6 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">F</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: F</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga en un avión con lentes de sol (va
+                        a la playa).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 7 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">G</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: G</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino; y así.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 8 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">H</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: H</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino mirando de frente.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 9 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">I</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: I</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino llorando.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 10 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">J</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: J</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga encerrada en una jarra (Aún no se
+                        descubre de que es el agua).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 11 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">K</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: K</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un KOALA</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 12 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">L</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: L</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa 2 aletas de tortuga.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 13 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">M</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: M</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa dos pingüinos abrazándose (visto desde en
+                        frente).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 14 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">N</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: N</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 15 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">Ñ</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Ñ</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga con un sombrero.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 16 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">O</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: O</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino nadando.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 17 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">P</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: P</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un caparazón de tortuga golpeado (vibra
+                        porque está estresada).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 18 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">Q</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Q</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga EN un zapato.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 19 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">R</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: R</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino escuchando música (baladas
+                        lentas,claro).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 20 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">S</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: S</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino deslizándose en la nieve.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 21 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">T</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: T</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa 3 huevos de tortuga.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 22 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">U</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: U</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino surfeando.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 23 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">V</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: V</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una aleta de pingüino.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 24 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">W</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: W</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino distorsionado (como cuando entras
+                        a un portal del nether).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 25 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">X</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: X</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga espía (tiene máscara).</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 26 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">Y</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Y</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino.</p>
+                </div>
+
+                <!-- Ejemplo de Símbolo 27 -->
+                <div class="symbol-card">
+                    <div class="symbol-placeholder">Z</div>
+                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Z</p>
+                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga durmiendo.</p>
+                </div>
+
+                <!-- Agrega más bloques de símbolos según sea necesario -->
+            </div>
+        </section>
+
+        <!-- Sección: Reglas y Estructura -->
+        <section id="rules" class="section">
+            <h2 class="section-title">
+                ✍️ Reglas y Estructura
+            </h2>
+            <div class="prose">
+                <p>
+                    El alfabeto <strong style="color: #9333ea;">Sphentaro</strong> se distingue por su simpleza y sus grafos independientes. Se lee de <strong style="color: #4f46e5;">izquierda a derecha</strong>, de forma
+                    similar a muchos idiomas occidentales. Cada símbolo está diseñado para representar un fonema
+                    fundamental, permitiendo directa y práctica.
+                </p>
+                <p>
+                    Una característica distintiva es la ausencia de mayúsculas y minúsculas; la distinción en la
+                    escritura se logra a través del <strong style="color: #4f46e5;">Salto de párrafo</strong>.
+                </p>
+                <p>
+                    <strong>Ejemplo de Escritura:</strong>
+                </p>
+                <div class="example-box">
+                    <p class="alphabet-example-text">
+                        Para golpes y caidas mariguanol.
+                    </p>
+                    <p class="alphabet-example-translation">
+                        Para golpes y caidas mariguanol.
+                    </p>
+                </div>
+                <p>
+                    <strong style="color: #4f46e5;">Consideraciones Adicionales:</strong>
+                </p>
+                <ul>
+                    <li><span>Formas de Combinación:</span> Las palabras se separan con espacios</li>
+                    <li><span>Ortografía:</span> Los acentos o tonos se dan dado el contexto; no hay tilde gráfica.</li>
+                    <li><span>Puntuación:</span> Sus símbolos de puntuación son iguales a los del alfabeto griego.</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- Sección: Descarga la Fuente -->
+        <section id="download" class="section" style="text-align: center;">
+            <h2 class="section-title">
+                💾 Descarga la Fuente
+            </h2>
+            <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 2rem;">
+                ¡Lleva <strong style="color: #9333ea;">Sphentaro</strong> a tus propios proyectos! Aquí puedes descargar
+                la fuente en formato <strong style="color: #4f46e5;">.OTF</strong>.
+            </p>
+            <a href="Sphentaro-Regular.otf" class="download-button">
+                Descargar Fuente
+            </a>
+            <div class="instructions-box">
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Instrucciones de Instalación:</h3>
+                <ul
+                    style="list-style: disc; list-style-position: inside; color: #4b5563; margin-top: 1rem; padding-left: 0;">
+                    <li><span>Windows:</span> Haz doble clic en el archivo .TTF/.OTF y selecciona "Instalar".</li>
+                    <li><span>macOS:</span> Haz doble clic en el archivo .TTF/.OTF y selecciona "Instalar Tipo de
+                        Letra".</li>
+                    <li><span>Linux:</span> Copia el archivo a ~/.fonts o a /usr/local/share/fonts.</li>
+                </ul>
+                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Licencia de Uso:</h3>
+                <p style="color: #4b5563;">
+                    Esta fuente se distribuye bajo la licencia <strong style="color: #374151;">Licencia de Uso Personal
+                        Gratuito</strong>.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AaGaKa Co. Todos los derechos reservados.</p>
+            <p class="small-text">Diseñado con cariño en nombre de todos <strong class="footer-highlight">los sueños del mundo</strong>.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
