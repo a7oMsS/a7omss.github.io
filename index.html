@@ -1,869 +1,717 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sphentaro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="a">
-    <style>
-        /* Estilos generales del cuerpo */
-        body {
-            border: none;
-            padding: 0;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
-            color: #374151;
-            /* text-gray-800 */
-            -webkit-font-smoothing: antialiased;
-            /* antialiased */
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .container {
-            max-width: 1200px;
-            /* mx-auto */
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1rem;
-            /* px-4 */
-            padding-right: 1rem;
-            /* px-4 */
-        }
-
-        /* Estilos del encabezado */
-        .header {
-            background: linear-gradient(to right, #4f46e5, #7c3aed);
-            /* bg-gradient-to-r from-indigo-600 to-purple-700 */
-            color: #ffffff;
-            /* text-white */
-            padding: 1.5rem;
-            /* p-6 */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            /* shadow-lg */
-            text-align: center;
-            font-family: 'Comfortaa';
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:p-8 */
-            .header {
-                padding: 2rem;
-            }
-        }
-
-        .header-title {
-            font-size: 2.25rem;
-            /* text-4xl */
-            font-weight: 700;
-            /* font-bold */
-            margin-bottom: 1rem;
-            /* mb-4 */
-            display: inline-block;
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:text-6xl */
-            .header-title {
-                font-size: 3.75rem;
-            }
-        }
-
-        .header-title-highlight {
-            color: #c7d2fe;
-            font-family: 'Rubiks';
-        }
-
-        .header-subtitle {
-            font-size: 1.25rem;
-            /* text-xl */
-            font-weight: 300;
-            /* font-light */
-            opacity: 0.9;
-            /* opacity-90 */
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:text-2xl */
-            .header-subtitle {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Contenido principal */
-        .main-content {
-            padding-top: 2rem;
-            /* py-8 */
-            padding-bottom: 2rem;
-            /* py-8 */
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:py-12 */
-            .main-content {
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-        }
-
-        /* Secciones */
-        .section {
-            background-color: #ffffff8c;
-            /* bg-white */
-            backdrop-filter: blur(2);
-            padding: 1.5rem;
-            /* p-6 */
-            border-radius: 1rem;
-            /* rounded-2xl */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-            /* shadow-xl */
-            margin-bottom: 3rem;
-            /* mb-12 */
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:p-8 */
-            .section {
-                padding: 2rem;
-            }
-        }
-
-        .section-title {
-            font-size: 1.875rem;
-            /* text-3xl */
-            font-weight: 700;
-            /* font-bold */
-            color: #4338ca;
-            /* text-indigo-700 */
-            margin-bottom: 1.5rem;
-            /* mb-6 */
-            padding-bottom: 0.5rem;
-            /* pb-2 */
-            border-bottom: 2px solid #c7d2fe;
-            /* border-b-2 border-indigo-200 */
-            display: inline-block;
-            /* to make border-bottom only under the text */
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:text-4xl */
-            .section-title {
-                font-size: 2.25rem;
-            }
-        }
-
-        .section-title-highlight {
-            color: #9333ea;
-            /* text-purple-600 */
-        }
-
-        .prose {
-            max-width: none;
-            /* max-w-none */
-            font-size: 1.125rem;
-            /* text-lg */
-            color: #4b5563;
-            /* text-gray-700 */
-            line-height: 1.625;
-            /* leading-relaxed */
-        }
-
-        .prose p {
-            margin-bottom: 1rem;
-        }
-
-        .prose strong {
-            font-weight: 600;
-            /* font-semibold */
-        }
-
-        .prose ul {
-            list-style: disc;
-            list-style-position: inside;
-            margin-top: 1rem;
-            /* mt-4 */
-            padding-left: 0;
-        }
-
-        .prose li {
-            margin-bottom: 0.5rem;
-            /* space-y-2 (for li elements) */
-        }
-
-        .prose li span {
-            font-weight: 500;
-            /* font-medium */
-            color: #374151;
-            /* text-gray-800 */
-        }
-
-        /* Simbología y Significado - Grid */
-        .symbols-grid {
-            display: grid;
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-            /* grid-cols-1 */
-            gap: 2rem;
-            /* gap-8 */
-        }
-
-        @media (min-width: 640px) {
-
-            /* sm:grid-cols-2 */
-            .symbols-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (min-width: 1024px) {
-
-            /* lg:grid-cols-3 */
-            .symbols-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        .symbol-card {
-            background-color: #f9fafb;
-            /* bg-gray-50 */
-            padding: 1.5rem;
-            /* p-6 */
-            border-radius: 0.75rem;
-            /* rounded-xl */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            /* shadow-md */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease;
-            /* transition-transform transform duration-300 */
-        }
-
-        .symbol-card:hover {
-            transform: scale(1.05);
-            /* hover:scale-105 */
-        }
-
-        .symbol-card h3 {
-            font-size: 1.5rem;
-            /* text-2xl */
-            font-weight: 700;
-            /* font-bold */
-            color: #4f46e5;
-            /* text-indigo-600 */
-            margin-bottom: 0.5rem;
-            /* mb-2 */
-        }
-
-        .symbol-card p {
-            font-size: 1.125rem;
-            /* text-lg */
-            color: #4b5563;
-            /* text-gray-700 */
-            margin-bottom: 0.5rem;
-            /* mb-2 */
-        }
-
-        .symbol-card p:last-of-type {
-            font-size: 1rem;
-            /* text-base */
-            color: #4b5563;
-            /* text-gray-600 */
-            margin-bottom: 0;
-        }
-
-        /* Estilo para los símbolos individuales dentro de las tarjetas */
-        .alphabet-symbol {
-            font-size: 3rem;
-            /* Tamaño grande para los símbolos */
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .alphabet-symbol:hover {
-            color: #6d28d9;
-            /* Un morado más oscuro al pasar el ratón */
-            transform: scale(1.1);
-            /* Ligeramente más grande al pasar el ratón */
-        }
-
-        /* Estilo para simular un símbolo si no tienes imágenes aún */
-        .symbol-placeholder {
-            display: inline-flex;
-            align-items: center;
-            font-family: 'Sphentaro';
-            justify-content: center;
-            width: 80px;
-            /* Ancho del contenedor del símbolo */
-            height: 80px;
-            /* Alto del contenedor del símbolo */
-            background-color: #e0e7ff;
-            /* Un azul claro */
-            border-radius: 12px;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #4f46e5;
-            /* Un azul más oscuro */
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 1rem;
-            /* mb-4 */
-        }
-
-        .symbol-placeholder:hover {
-            background-color: #c7d2fe;
-            /* Color más oscuro al pasar el ratón */
-            transform: translateY(-3px);
-            /* Ligeramente elevado al pasar el ratón */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Reglas y Estructura - Ejemplo de Escritura */
-        .example-box {
-            background-color: #f3f4f6;
-            /* bg-gray-100 */
-            padding: 1rem;
-            /* p-4 */
-            border-radius: 0.5rem;
-            /* rounded-lg */
-            border: 1px solid #e5e7eb;
-            /* border border-gray-200 */
-            margin-top: 1rem;
-            /* mt-4 */
-            margin-bottom: 1.5rem;
-            /* mb-6 */
-        }
-
-        .alphabet-example-text {
-            font-size: 1.5rem;
-            /* text-2xl */
-            font-weight: 700;
-            /* font-bold */
-            text-align: center;
-            /* text-center */
-            color: #3730a3;
-            /* text-indigo-800 */
-            letter-spacing: 0.1em;
-            /* Espaciado entre letras para un efecto visual */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            font-family: 'Sphentaro'
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:text-3xl */
-            .alphabet-example-text {
-                font-size: 1.875rem;
-            }
-        }
-
-        .alphabet-example-translation {
-            font-size: 1.125rem;
-            /* text-lg */
-            text-align: center;
-            /* text-center */
-            color: #4b5563;
-            /* text-gray-600 */
-            margin-top: 0.5rem;
-            /* mt-2 */
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:text-xl */
-            .alphabet-example-translation {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Descarga la Fuente */
-        .download-button {
-            display: inline-block;
-            background-color: #4f46e5;
-            /* bg-indigo-600 */
-            color: #ffffff;
-            /* text-white */
-            font-weight: 700;
-            /* font-bold */
-            padding: 0.75rem 2rem;
-            /* py-3 px-8 */
-            border-radius: 9999px;
-            /* rounded-full */
-            font-size: 1.25rem;
-            /* text-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            /* shadow-lg */
-            transform: scale(1);
-            /* initial transform for transition */
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            /* transition-transform hover:scale-105 duration-300 */
-        }
-
-        .download-button:hover {
-            background-color: #4338ca;
-            /* hover:bg-indigo-700 */
-            transform: scale(1.05);
-            /* hover:scale-105 */
-        }
-
-        .instructions-box {
-            margin-top: 2rem;
-            /* mt-8 */
-            text-align: left;
-            /* text-left */
-            max-width: 42rem;
-            /* max-w-2xl */
-            margin-left: auto;
-            /* mx-auto */
-            margin-right: auto;
-            /* mx-auto */
-        }
-
-        .instructions-box h3 {
-            font-size: 1.25rem;
-            /* text-xl */
-            font-weight: 600;
-            /* font-semibold */
-            color: #4338ca;
-            /* text-indigo-700 */
-            margin-bottom: 0.75rem;
-            /* mb-3 */
-        }
-
-        /* Contacto */
-        .contact-info p {
-            font-size: 1.25rem;
-            /* text-xl */
-        }
-
-        .contact-info span {
-            font-weight: 700;
-            /* font-bold */
-            color: #4f46e5;
-            /* text-indigo-600 */
-        }
-
-        .contact-info a {
-            color: #9333ea;
-            /* text-purple-600 */
-            margin-left: 0.5rem;
-            /* ml-2 */
-            transition: text-decoration 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-            /* hover:underline */
-        }
-
-        /* Pie de página */
-        .footer {
-            background-color: #1f2937;
-            /* bg-gray-800 */
-            color: #ffffff;
-            /* text-white */
-            padding: 1.5rem;
-            /* p-6 */
-            margin-top: 3rem;
-            /* mt-12 */
-            text-align: center;
-            /* text-center */
-        }
-
-        @media (min-width: 768px) {
-
-            /* md:p-8 */
-            .footer {
-                padding: 2rem;
-            }
-        }
-
-        .footer p {
-            font-size: 1.125rem;
-            /* text-lg */
-        }
-
-        .footer .small-text {
-            font-size: 0.875rem;
-            /* text-sm */
-            margin-top: 0.5rem;
-            /* mt-2 */
-            opacity: 0.8;
-            /* opacity-80 */
-        }
-
-        .footer-highlight {
-            color: #818cf8;
-            /* text-indigo-400 */
-        }
-
-        @font-face {
-            font-family: 'Sphentaro';
-            src: url(Sphentaro-Regular.otf);
-        }
-
-        @font-face {
-            font-family: 'Comfortaa';
-            src: url(Comfortaa-VariableFont_wght.ttf);
-        }
-
-        @font-face {
-            font-family: 'Rubiks';
-            src: url(Rubik80sFade-Regular.ttf);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoQuest: Save Energy at School!</title>
+    <link rel="icon" type="image/x-icon" href="icon.png">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url(pattern.avif);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #388e3c;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      max-height: 120px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      font-family: 'Passion One';
+      text-transform: uppercase;
+      content: 'EcoQuest: Save Energy at School!';
+    }
+    header p {
+      margin: 0;
+      font-size: 1.6em;
+      text-transform: uppercase;
+      font-family: 'Passion One';
+      color: rgba(255, 255, 255, 0.715);
+      content: 'Test your habits and become an Eco Hero!';
+    }
+    header h1::after {
+      content: 'EcoQuest: Save Energy at School!';
+    }
+    header p::after {
+      content: 'Test your habits and become an Eco Hero!';
+    }
+
+    .icon{
+      display: block;
+      width: 120px;  
+      height: auto;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      filter: brightness(2.0);
+      cursor: pointer;
+    }
+
+    main {
+      display: none;
+      max-width:  min(800px, 70%);
+      margin: 30px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    main.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #1b5e20;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #a5d6a7c9;
+      padding-bottom: 5px;
+      font-family: Impact;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #c8e6c9;
+      border-radius: 10px;
+      background: #f1f8e9;
+      animation: slide-in linear forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+      
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #43a047;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 20px 25px;
+      font-size: 1.3em;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    main button{
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #3da242;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 15px;
+      background: #388e3c;
+      color: white;
+      font-size: 1.3em;
+      font-weight: bolder;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .reward {
+      background: #f9fbe7;
+      border-left: 5px solid #8bc34a;
+      padding: 10px 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .reward h3 {
+      margin-top: 0;
+      color: #558b2f;
+    }
+
+    /* Pantalla inicial */
+    #start-screen {
+      position: fixed;
+      inset: 0;
+      background-image: url(bg.png);
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 10;
+      transition: opacity 0.6s ease;
+      animation: fadeInBG 1s ease forwards;
+    }
+
+    #start-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #start-screen h1 {
+      font-size: 2.4em;
+      color: #1b5e20;
+      margin-bottom: 10px;
+      display: inline;
+      white-space: nowrap
+    }
+
+
+    #start-screen p {
+      color: #ffffff;
+      text-shadow: 0px 1px 0px rgba(0, 0, 0, 1.0);
+      font-size: 1.1em;
+      margin-bottom: 25px;
+    }
+
+    #start-screen button {
+      background-color: #43a047;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 25px;
+      font-size: 1.5em;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: background 0.3s ease;
+      box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.4);
+      transition: 0.2s;
+    }
+
+    #start-screen button:hover{
+      background-color: #4cca53;
+      scale: 1.1;
+    }
+
+    /* Pantalla final */
+    #end-screen {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+      transition: opacity 0.6s ease;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 1.2rem;
+    }
+
+    #end-card{
+      background: linear-gradient(135deg, #c8e6c9, #b2dfdb);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      padding: 20px;
+      width: min(1100px, 80%);
+      height: 80%;
+      margin: auto;
+    }
+
+    #end-screen.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #end-screen h2 {
+      font-size: 2em;
+      color: #1b5e20;
+      margin-bottom: 10px;
+    }
+
+    .medal {
+      font-size: 4em;
+      animation: bounce 1.2s infinite alternate ease-in-out;
+    }
+
+    table{
+      width: 100%;
+      font-size: 1.2rem;
+      text-align: center; 
+      border-collapse: separate;
+      border-spacing: 0 10px; 
+    }
+
+    thead{
+      background-color: #00ff0d;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    tr{
+      border-radius: 12px;
+      background-color: #88bf8aea;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    }
+    
+    @keyframes bounce {
+      from {transform: translateY(0);}
+      to {transform: translateY(-10px);}
+    }
+
+    .impact {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #2e7d32;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    @media screen and (max-width: 768px) {
+      
+    header h1 {
+      font-size: 1.6em;
+    }
+    header p{
+      font-size: 1.2em;
+    }
+    header h1::after {
+      content: 'EcoQuest';
+    }
+    header p::after {
+      content: 'Become an Eco Hero!';
+    }
+
+      .icon{
+        width: 100px;
+      }
+
+      #start-screen h1 {
+        font-size: 2em;
+        color: white;
+        white-space: wrap;
+        max-width: 80%;
+      }
+
+      #start-screen button {
+      padding: 10px 15px;
+      font-size: 1.2em;
+    }
+  }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    @keyframes fadeInBG {
+      from {transform: scale(1);}
+      to {transform: scale(1.05);}
+    }
+
+    @font-face {
+        font-family: 'Passion One';
+        src: url(PassionOne-Bold.ttf);
+    }
+
+    @keyframes slide-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  </style>
 </head>
+<body>
+  <!-- Pantalla de inicio -->
+  <div id="start-screen" class="fade-in">
+    <h1 class="fade-in">🌿 Eco<w class="fade-in" style="color: white;">Quest: Save Energy at</w> School!</h1>
+    <p class="fade-in">Learn how your daily choices can help the planet.<br>Are you ready to become an Eco Hero?</p>
+    <div style="display: flex; flex-direction: row; width: min(500px, 90%); justify-content: space-evenly;">
+      <button class="fade-in" style="flex-basis: 40%;" onclick="startQuiz()">Start Quiz</button>
+      <button class="fade-in" style="flex-basis: 40%;" onclick="showLeaderboard()">Leaderboard</button>
+    </div>
+  </div>
 
-<body class="antialiased">
+  <!-- Pantalla final -->
+  <div id="end-screen">
+    <div id="end-card">
+      <h2 id="end-title">Congratulations!</h2>
+      <div class="medal" id="medal">🏅</div>
+      <p id="end-message"></p>
+      <p class="impact" id="impact"></p>
+      <button onclick="restartQuiz()">Go Home</button>
+    </div>
+  </div>
 
-    <!-- Encabezado de la página -->
-    <header class="header">
-        <div class="container text-center">
-            <h1 class="header-title">
-                <span class="header-title-highlight">Sphentaro</span>
-            </h1>
-            <p class="header-subtitle">
-                Una pequeña travesía a través de su historia y significado
-            </p>
-        </div>
-    </header>
+  <header>
+    <img class="icon" src="icon.png" onclick="restartQuiz()"></img>
+    <p></p>
+    <h1></h1>
+  </header>
 
-    <!-- Contenido principal de la página -->
-    <main class="container main-content">
+  <main id="quiz-content">
+    <h2>Energy Quiz</h2>
 
-        <!-- Sección: Sobre el Alfabeto -->
-        <section id="about" class="section">
-            <h2 class="section-title">
-                📖 Sobre <span class="section-title-highlight">Sphentaro</span>
-            </h2>
-            <div class="prose">
-                <p>
-                    <strong style="color: #4f46e5;">Sphentaro</strong> es un proyecto informal surgido como una broma que se convirtió en algo más. 
-                    Este alfabeto no es solo un conjunto de símbolos; es una manifestación
-                    artística y conceptual que busca <strong style="color: #9333ea;">darle valor a las ideas propias y enorgullecer al niño que llevamos dentro</strong>. Una forma de diversión.
-                </p>
-                <p>
-                    Sphentaro es el nombre que se le da a este nuevo alfabeto creado por Karim y Gael (Yo)<br>
-                    La idea es sencilla, decidimos crear un sistema propio de escritura pero sin que fuera demasiado complicado.
-                    Explorando distintos alfabetos y lenguas hicimos un popurrí de los conceptos más básicos de la escritura: <br>
-                    Tenía que ser fonético, con símbolos fáciles de recordar y escribir (especialmente cuando se requiere escribir mucho) y muy importante,
-                    tenía que significar algo. Fue entonces cuando llegó la brillante idea de hacer uso de figuras valiosas para nosotros: <strong style="color: #086b17;">Tortugas </strong> y <strong style="color: black;">pingüinos</strong>.
-                    Nuestros animales favoritos representados y compartidos de una forma creativa. De ahí surgió el nombre; <i>"Spheniscidae"</i> el nombre científico del pingüino y <i>"Tartarūchus"</i> el (quizá) origen etimológico de la tortuga, juntos forman
-                    <strong>Sphentaro</strong>.
-                </p>
-                <p>
-                    Basado en el actual alfabeto español, cada grafo tiene un equivalente a un sonido del idioma.<br>
-                    Este está conformado por 13 figuras que representan tortugas, 13 que representan pingüinos y 1 koala (para que fuera equitativo).
-                    Cada trazo ha sido diseñado meticulosamente para cumplir con ciertos estándares de calidad y naturaleza.<br>
-                    Las lineas y ángulos rectos se ven principalmente en los pingüinos mientras que las curvas y círculos a las tortugas.
-                    Para que fueran sencillos cada uno cuenta con entre 3 y 5 trazos de curvas y rectas.
-                </p>
-                <p>
-                    El proceso de desarrollo aunque tardado, estuvo bien planeado.
-                    Decidimos que cada símbolo no solo fuera por ser, si no que inspiraran sensaciones e ideas.<br>
-                    Para ello veíamos detenidamente cada letra y escuchábamos sus sonidos con la intención de encontrar esa chispa que nos dijera:
-                    "Esta letra es como un..." o "Cuando veo aquella letra me hace pensar en...". En palabras más sencillas, buscamos <strong style="color: #4f46e5;">como sería una letra si fuera un animal</strong>.
-                </p>
-            </div>
-        </section>
+    <form id="quizForm">
+           <!-- Transporte -->
+      <div class="question">
+        <strong>1. How do you usually go to school?</strong>
+        <label><input type="radio" name="q1" value="10"> I walk or bike 🚲</label>
+        <label><input type="radio" name="q1" value="7"> Public transport 🚌</label>
+        <label><input type="radio" name="q1" value="3"> Carpool with others 🚗</label>
+        <label><input type="radio" name="q1" value="0"> Alone by car 🚘</label>
+      </div>
 
-        <!-- Sección: Simbología y Significado -->
-        <section id="symbology" class="section">
-            <h2 class="section-title">
-                🔠 Simbología y Significado
-            </h2>
-            <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 2rem;">
-                Aquí, cada símbolo de <strong style="color: #9333ea;">Sphentaro</strong> cobra vida, revelando su
-                correspondencia y el profundo significado que encierra.
-            </p>
+      <div class="question">
+        <strong>2. How often do you use public transport instead of a private car?</strong>
+        <label><input type="radio" name="q2" value="10"> Always</label>
+        <label><input type="radio" name="q2" value="7"> Often</label>
+        <label><input type="radio" name="q2" value="3"> Rarely</label>
+        <label><input type="radio" name="q2" value="0"> Never</label>
+      </div>
 
-            <div class="symbols-grid">
-                <!-- Ejemplo de Símbolo 1 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">A</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: A</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga tirada en el suelo tomando café.
-                    </p>
-                </div>
+      <div class="question">
+        <strong>3. How do you travel short distances (less than 2 km)?</strong>
+        <label><input type="radio" name="q3" value="10"> Walk or cycle</label>
+        <label><input type="radio" name="q3" value="5"> Electric scooter</label>
+        <label><input type="radio" name="q3" value="2"> Car</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 2 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">B</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: B</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino congelado en un cubo de hielo.
-                    </p>
-                </div>
+      <div class="question">
+        <strong>4. How often do you combine trips to reduce car use?</strong>
+        <label><input type="radio" name="q4" value="10"> Always</label>
+        <label><input type="radio" name="q4" value="5"> Sometimes</label>
+        <label><input type="radio" name="q4" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 3 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">C</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: C</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga acostada en la arena.</p>
-                </div>
+      <!-- Tecnología -->
+      <div class="question">
+        <strong>5. How do you charge your phone?</strong>
+        <label><input type="radio" name="q5" value="10"> Only when needed and unplug when full 🔌</label>
+        <label><input type="radio" name="q5" value="5"> Leave it charging overnight 💤</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 4 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">D</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: D</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino gordo...</p>
-                </div>
+      <div class="question">
+        <strong>6. Do you use power-saving mode on your devices?</strong>
+        <label><input type="radio" name="q6" value="10"> Always</label>
+        <label><input type="radio" name="q6" value="5"> Sometimes</label>
+        <label><input type="radio" name="q6" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 5 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">E</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: E</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga meditando (o eso creemos).</p>
-                </div>
+      <div class="question">
+        <strong>7. Do you turn off your computer after using it?</strong>
+        <label><input type="radio" name="q7" value="10"> Always</label>
+        <label><input type="radio" name="q7" value="5"> Only at night</label>
+        <label><input type="radio" name="q7" value="0"> Rarely</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 6 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">F</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: F</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga en un avión con lentes de sol (va
-                        a la playa).</p>
-                </div>
+      <div class="question">
+        <strong>8. What is your screen brightness level?</strong>
+        <label><input type="radio" name="q8" value="10"> Below 50%</label>
+        <label><input type="radio" name="q8" value="5"> Around 70%</label>
+        <label><input type="radio" name="q8" value="0"> Maximum brightness</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 7 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">G</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: G</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino; y así.</p>
-                </div>
+      <div class="question">
+        <strong>9. How often do you unplug chargers when not in use?</strong>
+        <label><input type="radio" name="q9" value="10"> Always</label>
+        <label><input type="radio" name="q9" value="5"> Sometimes</label>
+        <label><input type="radio" name="q9" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 8 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">H</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: H</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino mirando de frente.</p>
-                </div>
+      <!-- Casa -->
+      <div class="question">
+        <strong>10. At home, how do you manage lights?</strong>
+        <label><input type="radio" name="q10" value="10"> Always turn off when leaving a room 💡</label>
+        <label><input type="radio" name="q10" value="5"> Sometimes forget 🤔</label>
+        <label><input type="radio" name="q10" value="0"> Leave them on often 😅</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 9 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">I</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: I</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino llorando.</p>
-                </div>
+      <div class="question">
+        <strong>11. Do you use LED bulbs instead of traditional ones?</strong>
+        <label><input type="radio" name="q11" value="10"> Yes, all of them</label>
+        <label><input type="radio" name="q11" value="5"> Some</label>
+        <label><input type="radio" name="q11" value="0"> None</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 10 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">J</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: J</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga encerrada en una jarra (Aún no se
-                        descubre de que es el agua).</p>
-                </div>
+      <div class="question">
+        <strong>12. How long are your showers?</strong>
+        <label><input type="radio" name="q12" value="10"> Under 5 minutes 🚿</label>
+        <label><input type="radio" name="q12" value="5"> About 10 minutes</label>
+        <label><input type="radio" name="q12" value="0"> Over 15 minutes</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 11 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">K</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: K</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un KOALA</p>
-                </div>
+      <div class="question">
+        <strong>13. Do you unplug unused appliances at home?</strong>
+        <label><input type="radio" name="q13" value="10"> Always</label>
+        <label><input type="radio" name="q13" value="5"> Sometimes</label>
+        <label><input type="radio" name="q13" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 12 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">L</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: L</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa 2 aletas de tortuga.</p>
-                </div>
+      <div class="question">
+        <strong>14. How do you wash clothes?</strong>
+        <label><input type="radio" name="q14" value="10"> Cold water cycle 🧺</label>
+        <label><input type="radio" name="q14" value="5"> Warm water</label>
+        <label><input type="radio" name="q14" value="0"> Hot water</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 13 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">M</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: M</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa dos pingüinos abrazándose (visto desde en
-                        frente).</p>
-                </div>
+      <div class="question">
+        <strong>15. Do you dry clothes naturally?</strong>
+        <label><input type="radio" name="q15" value="10"> Always (sun/air)</label>
+        <label><input type="radio" name="q15" value="5"> Sometimes use dryer</label>
+        <label><input type="radio" name="q15" value="0"> Always use dryer</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 14 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">N</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: N</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga.</p>
-                </div>
+      <div class="question">
+        <strong>16. How often do you turn off your Wi-Fi router at night?</strong>
+        <label><input type="radio" name="q16" value="10"> Always</label>
+        <label><input type="radio" name="q16" value="5"> Occasionally</label>
+        <label><input type="radio" name="q16" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 15 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">Ñ</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Ñ</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga con un sombrero.</p>
-                </div>
+      <div class="question">
+        <strong>17. Do you recycle paper, plastic, and cans?</strong>
+        <label><input type="radio" name="q17" value="10"> Always</label>
+        <label><input type="radio" name="q17" value="5"> Sometimes</label>
+        <label><input type="radio" name="q17" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 16 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">O</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: O</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino nadando.</p>
-                </div>
+      <div class="question">
+        <strong>18. How do you use air conditioning or heating?</strong>
+        <label><input type="radio" name="q18" value="10"> Only when necessary ❄️🔥</label>
+        <label><input type="radio" name="q18" value="5"> Frequently</label>
+        <label><input type="radio" name="q18" value="0"> All the time</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 17 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">P</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: P</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un caparazón de tortuga golpeado (vibra
-                        porque está estresada).</p>
-                </div>
+      <div class="question">
+        <strong>19. Do you use reusable bottles or cups?</strong>
+        <label><input type="radio" name="q19" value="10"> Always</label>
+        <label><input type="radio" name="q19" value="5"> Sometimes</label>
+        <label><input type="radio" name="q19" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 18 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">Q</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Q</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga EN un zapato.</p>
-                </div>
+      <div class="question">
+        <strong>20. How often do you talk to friends about saving energy?</strong>
+        <label><input type="radio" name="q20" value="10"> Often</label>
+        <label><input type="radio" name="q20" value="5"> Sometimes</label>
+        <label><input type="radio" name="q20" value="0"> Never</label>
+      </div>
 
-                <!-- Ejemplo de Símbolo 19 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">R</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: R</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino escuchando música (baladas
-                        lentas, claro).</p>
-                </div>
+      <button type="button" onclick="calculateScore()">Calculate My Impact</button>
+    </form>
 
-                <!-- Ejemplo de Símbolo 20 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">S</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: S</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino deslizándose en la nieve.</p>
-                </div>
+    <div class="reward">
+      <h3>🏆 Rewards</h3>
+      <p><strong>180–200 points:</strong> 🌟 Eco Hero — Gold Certificate!</p>
+      <p><strong>140–179 points:</strong> 🌿 Energy Saver — Silver Badge!</p>
+      <p><strong>100–139 points:</strong> 🌱 Eco Learner — Keep improving!</p>
+      <p><strong>Below 100:</strong> 💧 Time to level up your eco habits!</p>
+    </div>
+  </main>
 
-                <!-- Ejemplo de Símbolo 21 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">T</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: T</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa 3 huevos de tortuga.</p>
-                </div>
+  <section id="leaderboard-section" style="
+      width: min(950px, 85%); margin-top: 40px;margin: auto; display: none; min-height: 70vh;">
+    <h2>🌍 Global Leaderboard</h2>
+    <table cellpadding="8">
+      <thead>
+        <tr><th>Rank</th><th>Name</th><th>Score</th></tr>
+      </thead>
+      <tbody id="leaderboard"></tbody>
+    </table>
+  </section>
 
-                <!-- Ejemplo de Símbolo 22 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">U</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: U</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino surfeando.</p>
-                </div>
+  <footer>
+    <span>© 2025 EcoQuest</span>
+    Made by Gael Basurto Chávez
+  </footer>
 
-                <!-- Ejemplo de Símbolo 23 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">V</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: V</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una aleta de pingüino.</p>
-                </div>
+<script>
+  const BIN_ID = "6912871cae596e708f517523"
+  const MASTER_KEY = "$2a$10$sXXlhGHLI4B9Qsp3UsOkxeyxCmnOmnMueB2RG4fL34l8LjGIfSj3e";
 
-                <!-- Ejemplo de Símbolo 24 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">W</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: W</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino distorsionado (como cuando entras
-                        a un portal del nether).</p>
-                </div>
+  function startQuiz() {
+    const start = document.getElementById('start-screen');
+    const quiz = document.getElementById('quiz-content');
+    start.classList.add('hidden');
+    setTimeout(() => {
+      start.style.display = 'none';
+      quiz.style.display = 'block';
+      quiz.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 600);
+  }
 
-                <!-- Ejemplo de Símbolo 25 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">X</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: X</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga espía (tiene máscara).</p>
-                </div>
+  function showLeaderboard() {
+    const start = document.getElementById('start-screen');
+    const leaderboard = document.getElementById('leaderboard-section');
+    start.classList.add('hidden');
+    setTimeout(() => {
+      start.style.display = 'none';
+      leaderboard.style.display = 'block';
+      leaderboard.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 600);
+  }
 
-                <!-- Ejemplo de Símbolo 26 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">Y</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Y</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa un pingüino.</p>
-                </div>
+  async function calculateScore() {
+    let total = 0;
+    const form = document.forms['quizForm'];
 
-                <!-- Ejemplo de Símbolo 27 -->
-                <div class="symbol-card">
-                    <div class="symbol-placeholder">Z</div>
-                    <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 0.5rem;">Equivalente: Z</p>
-                    <p style="font-size: 1rem; color: #4b5563;">Representa una tortuga durmiendo.</p>
-                </div>
+    for (let i = 1; i <= 20; i++) {
+      const answer = form['q' + i]?.value;
+      if (answer) total += parseInt(answer);
+    }
 
-                <!-- Agrega más bloques de símbolos según sea necesario -->
-            </div>
-        </section>
+    if (total === 0) {
+      alert("Please answer all questions!");
+      return;
+    }
 
-        <!-- Sección: Reglas y Estructura -->
-        <section id="rules" class="section">
-            <h2 class="section-title">
-                ✍️ Reglas y Estructura
-            </h2>
-            <div class="prose">
-                <p>
-                    El alfabeto <strong style="color: #9333ea;">Sphentaro</strong> se distingue por su simpleza y sus grafos independientes. Se lee de <strong style="color: #4f46e5;">izquierda a derecha</strong>, de forma
-                    similar a muchos idiomas occidentales. Cada símbolo está diseñado para representar un fonema
-                    fundamental, permitiendo una escritura directa y práctica.
-                </p>
-                <p>
-                    Una característica distintiva es la ausencia de mayúsculas y minúsculas.
-                </p>
-                <p>
-                    <strong>Ejemplo de Escritura:</strong>
-                </p>
-                <div class="example-box">
-                    <p class="alphabet-example-text">
-                        Para golpes y caidas mariguanol.
-                    </p>
-                    <p class="alphabet-example-translation">
-                        Para golpes y caídas mariguanol.
-                    </p>
-                </div>
-                <p>
-                    <strong style="color: #4f46e5;">Consideraciones Adicionales:</strong>
-                </p>
-                <ul>
-                    <li><span>Formas de Combinación:</span> Las palabras se separan con espacios</li>
-                    <li><span>Ortografía:</span> Los acentos o tonos se dan dado el contexto; no hay tilde gráfica.</li>
-                    <li><span>Puntuación:</span> Sus símbolos de puntuación y exclamación son iguales a los del alfabeto griego.</li>
-                </ul>
-            </div>
-        </section>
+  const prevName = localStorage.getItem('playerName');
+  const playerName = prompt("Enter your name:", prevName || "");
+  localStorage.setItem('playerName', playerName);
+    if (!playerName) return;
+
+    const playerData = { name: playerName, score: total };
+
+    await saveScore(playerData);
+    await showEndScreen(playerData);
+    await loadLeaderboard();
+  }
+
+  async function saveScore(player) {
+    try {
+      // Obtener los datos actuales
+      const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+        headers: { "X-Master-Key": MASTER_KEY }
+      });
+      const json = await res.json();
+      const data = json.record || [];
+
+      // Agregar el nuevo jugador
+      data.push(player);
+
+      // Guardar los datos actualizados
+      await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY
+        },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      console.error("Error saving score:", err);
+    }
+  }
+
+async function loadLeaderboard() {
+  try {
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { "X-Master-Key": MASTER_KEY }
+    });
+    const json = await res.json();
+
+    // Aseguramos que el contenido siempre sea un array
+    let data = json.record;
+    if (!Array.isArray(data)) {
+      if (typeof data === "object" && data !== null) {
+        data = Object.values(data);
+      } else {
+        data = [];
+      }
+    }
+
+    // Ordenamos y mostramos los 10 mejores
+    const sorted = data.sort((a, b) => (b.score || 0) - (a.score || 0));
+    const table = document.getElementById('leaderboard');
+    table.innerHTML = sorted.length
+      ? sorted.map(
+          (p, i) => `<tr><td>${i + 1}</td><td>${p.name || 'Anonymous'}</td><td>${p.score || 0}</td></tr>`
+        ).join('')
+      : `<tr><td colspan="3">No scores yet!</td></tr>`;
+    
+  const rows = table.querySelectorAll("tr");
+  console.log(rows)
+  if (rows[0]) rows[0].style.backgroundColor = "gold";
+  if (rows[1]) rows[1].style.backgroundColor = "silver";
+  if (rows[2]) rows[2].style.backgroundColor = "#b08257";
+  } catch (err) {
+    console.error("Error loading leaderboard:", err);
+  }
+}
 
 
-        <!-- Sección: Descarga la Fuente -->
-        <section id="download" class="section" style="text-align: center;">
-            <h2 class="section-title">
-                💾 Descarga la Fuente
-            </h2>
-            <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 2rem;">
-                ¡Lleva <strong style="color: #9333ea;">Sphentaro</strong> a tus propios proyectos! Aquí puedes descargar
-                la fuente en formato <strong style="color: #4f46e5;">.OTF</strong>.
-            </p>
-            <a href="Sphentaro-Regular.otf" class="download-button">
-                Descargar Fuente
-            </a>
-            <div class="instructions-box">
-                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Instrucciones de Instalación:</h3>
-                <ul
-                    style="list-style: disc; list-style-position: inside; color: #4b5563; margin-top: 1rem; padding-left: 0;">
-                    <li><span>Windows:</span> Haz doble clic en el archivo .TTF/.OTF y selecciona "Instalar".</li>
-                    <li><span>macOS:</span> Haz doble clic en el archivo .TTF/.OTF y selecciona "Instalar Tipo de
-                        Letra".</li>
-                    <li><span>Linux:</span> Copia el archivo a ~/.fonts o a /usr/local/share/fonts.</li>
-                </ul>
-                <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Licencia de Uso:</h3>
-                <p style="color: #4b5563;">
-                    Esta fuente se distribuye bajo la licencia <strong style="color: #374151;">Licencia de Uso Personal
-                        Gratuito</strong>.
-                </p>
-            </div>
-        </section>
+  function showEndScreen(player) {
+    const total = player.score;
+    let title = "";
+    let medal = "";
+    let message = "";
+    let impact = "";
 
-    </main>
+    if (total >= 180) {
+      title = total+" Puntos |🌟Eco Hero!";
+      medal = "🥇";
+      message = "Incredible! You’re a gold-level energy saver.";
+      impact = "You reduced about 10 kg of CO₂ per week!";
+    } else if (total >= 140) {
+      title = total+" Puntos |🌿Energy Saver!";
+      medal = "🥈";
+      message = "Great job! You’re helping protect the planet every day.";
+      impact = "You reduced about 6 kg of CO₂ per week!";
+    } else if (total >= 100) {
+      title = total+" Puntos |🌱Eco Learner!";
+      medal = "🥉";
+      message = "Good start! Small actions can grow into big impact.";
+      impact = "You reduced about 3 kg of CO₂ per week!";
+    } else {
+      title = total+" Puntos |💧Eco Beginner!";
+      medal = "🎖️";
+      message = "Keep trying! Every small effort makes a difference.";
+      impact = "You can reduce up to 5 kg of CO₂ with a few changes!";
+    }
 
-    <!-- Pie de página -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 AaGaKa Co. Todos los derechos reservados.</p>
-            <p class="small-text">Diseñado con cariño en nombre de todos <strong class="footer-highlight">los sueños del mundo</strong>.</p>
-        </div>
-    </footer>
+    const end = document.getElementById('end-screen');
+    document.getElementById('end-title').textContent = title;
+    document.getElementById('medal').textContent = medal;
+    document.getElementById('end-message').textContent = message;
+    document.getElementById('impact').textContent = impact;
 
+    setTimeout(() => {
+      end.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 500);
+  }
+
+  function restartQuiz() {
+    document.getElementById('end-screen').classList.remove('active');
+    window.location.reload();
+  }
+
+  window.onload = loadLeaderboard;
+</script>
 </body>
-
 </html>
